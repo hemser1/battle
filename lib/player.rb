@@ -8,10 +8,6 @@ class Player
     @hp_points = 60
   end
 
-  def attack(player)
-    player.receive_damage
-  end
-
   def receive_damage
     @hp_points -= 10
   end

@@ -26,6 +26,12 @@ feature 'hit points' do
     sign_and_play
     expect(page).to have_content "Dave HB points = 60"
   end
+  scenario 'reduces HP points after attack' do
+    sign_and_play
+    click_button('Attack')
+    expect(page).to have_content "Dave HB points = 50"
+  end
+
 end
 
 feature 'Attacking' do
