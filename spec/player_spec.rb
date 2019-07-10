@@ -11,8 +11,11 @@ require 'player'
     end
 
     describe '#receive_damage' do
+
       it 'reduces the player hit points' do
-        expect { dave.receive_damage }.to change{ dave.hp_points }.by(-10)
+        allow(dave).to receive(:random_damage) { 3 }
+
+        expect { dave.receive_damage }.to change{ dave.hp_points }.by(-3)
       end
     end
 end

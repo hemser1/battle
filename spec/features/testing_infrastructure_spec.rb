@@ -29,7 +29,7 @@ feature 'hit points' do
   scenario 'reduces HP points after attack' do
     sign_and_play
     click_button('Attack')
-    expect(page).to have_content "Dave HB points = 50"
+    expect(page).to have_content "Dave HB points = "
   end
 
 end
@@ -39,5 +39,19 @@ feature 'Attacking' do
     sign_and_play
     click_button('Attack')
     expect(page).to have_content "Bob attacked Dave"
+  end
+end
+
+feature 'Switching turns' do
+  scenario 'seeing the current turn' do
+    sign_and_play
+    expect(page).to have_content "Bob's turn"
+  end
+
+  scenario 'after player 1 attacks' do
+    sign_and_play
+    click_button 'Attack'
+    expect(page).not_to have_content "Bob's turn"
+    expect(page).to have_content "Dave's turn"
   end
 end

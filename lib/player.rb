@@ -9,6 +9,11 @@ class Player
   end
 
   def receive_damage
-    @hp_points -= 10
+    @hp_points -= random_damage
   end
+
+  def random_damage
+    rand(1..10)
+  end
+
 end
